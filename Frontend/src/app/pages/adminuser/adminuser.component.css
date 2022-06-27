@@ -1,0 +1,26 @@
+mat-card{
+    text-align: center;
+    width: 70%;
+    float: right;
+}
+
+.profile-image{
+    width: 150px;
+    max-height: 150px;
+    border: 1px solid #ff4081;
+    border-radius: 50%;
+}
+
+.table{
+    width: 50%;
+    border-collapse: collapse;
+    margin-left: 25%;
+    
+}
+
+.table tr td{
+
+    padding: 15px 10px;
+    border: .5px solid #e2e2e2;
+   
+}

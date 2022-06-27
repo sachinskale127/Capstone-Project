@@ -1,0 +1,49 @@
+
+
+     
+      <div class="container">
+        <ul>
+       <li><img height="40px" class="card-img-top" src="{{productInfo?.productIcon}}">
+        <h4 class="card-title ">{{productInfo?.productName}}</h4>
+        <form name="form" #form='ngForm' (ngSubmit)="productInfo?.productStatus == 0 && addToCart()">
+          <div class="text-left">
+            <input hidden name="productId" [value]=productInfo?.productId>
+            <p class="card-test"><strong>Description: </strong>{{productInfo?.productDescription}}</p>
+            <p class="card-text">
+              <strong>Price: </strong>
+              <label id="price">{{productInfo?.productPrice | currency:"INR":"symbol"}}</label>
+            </p>
+            <p class="card-text"><strong>Stock: </strong>{{productInfo?.productStock}}</p>
+
+            <label class="card-text">
+              <strong>Quantity: </strong>
+              <input [(ngModel)]=count
+                     (change)="validateCount()"
+                     type="number"
+                     name="count"
+                     required
+                     min="1"
+                     [max]=productInfo?.productStock
+              >
+            </label>
+
+
+            <p class="card-text"><strong>Subtotal: </strong>
+              <label id="subtotal">{{count * productInfo?.productPrice | currency:"INR":"symbol"}}</label>
+            </p>
+          </div>
+
+        <i *ngIf="currentUser && addedToWishlist" class="fas fa-heart" (click)="handleRemoveFromWishList(productInfo.productId)"></i>
+         <i *ngIf="currentUser && !addedToWishlist" class="far fa-heart" (click)="handleAddToWishList(productInfo.productId)"></i>
+         
+    
+         <button mat-raised-button color="primary" type="submit" [disabled]="!form.form.valid" *ngIf="productInfo?.productStatus == 0; else offBlock"
+                  class="accent"
+          >Add to Cart
+          </button>
+
+          <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">Unavailable</a></ng-template>
+        </form>
+      </li> 
+      </ul>
+      </div>

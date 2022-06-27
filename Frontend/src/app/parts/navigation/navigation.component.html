@@ -1,0 +1,100 @@
+<header>
+    <div class="container">
+        <a [routerLink]="root">ShopForHome</a>
+        <nav>
+        <ul *ngIf="!currentUser || currentUser.role == Role.Customer">
+
+           <!-- <li><a routerLink="/category/0">
+               Idols & Figurines </a></li> 
+            <li><a routerLink="/category/1">
+               Wall Sculptures</a></li>
+            <li>
+            <a routerLink="/category/2">
+               Paintings</a></li>
+            <li>
+            <a 
+               routerLink="/category/3">
+               Artificial Flora
+            </a>
+        </li> -->
+
+        </ul>
+
+        
+
+        <ul>
+            <li><a *ngIf="!currentUser || currentUser.role == Role.Customer"
+                 routerLink="/cart">
+                Cart
+            </a>
+        </li>
+        </ul>        
+
+            <ul  *ngIf="currentUser && currentUser.role == Role.Manager">
+
+               <li><a   routerLink="/discount">Discount</a></li>
+            <li><a  (click)=getUsers() routerLink="/admin/user">Users</a></li>
+               <li> <a  routerLink="/seller/product">Stocks</a></li>
+            </ul>
+
+            <!-- <div class="useropt" *ngIf="currentUser && currentUser.role == Role.Customer">
+                <a class="nav-item nav-link"  routerLink="/wishlist">Wishlist</a>
+            </div> -->
+            <ul *ngIf="currentUser && currentUser.role == Role.Customer">
+                <li><a class="nav-item nav-link"  routerLink="/wishlist">Wishlist</a></li>
+            </ul>
+
+            <ng-container *ngIf="currentUser; else noUser">         
+            <ul>
+                <li><a  routerLink="/order">
+                    Orders
+                </a></li>
+                <li> <a routerLink="/profile">
+                    {{name}}
+                </a></li>
+               
+                <li><a  (click)="logout()" routerLink="/login" [queryParams]="{logout: true}">
+                    Sign Out
+                </a></li>
+                
+                
+            </ul>
+            </ng-container>
+            <ng-template #noUser>
+                <ul>
+                    <li> <a  routerLink="/login">
+                        Sign In
+                    </a></li>
+                    <li><a routerLink="/register">
+                        Sign Up
+                    </a></li>
+                </ul>       
+            </ng-template>
+            
+        </nav>
+    </div>
+
+</header>
+
+
+
+<!-- 
+<header>
+    <div class="container">
+      <a href="#" routerLink="/" class="logo">ShopforHome!</a>
+      <nav>
+        <ul>
+          <li><a href="#" routerLink="/cart-page">Cart</a></li>
+          <li><a *ngIf="!isLoggedIn" routerLink="/login">Login</a></li>
+          <li><a *ngIf="!isLoggedIn" [routerLink]="'/signup'">Signup</a></li>
+
+          <li><a 
+            (click)="logout()"
+            *ngIf="isLoggedIn">Logout</a></li>
+
+<li><a
+    *ngIf="isLoggedIn && user" routerLink="/admin/profile">{{ user.username}}</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header> -->

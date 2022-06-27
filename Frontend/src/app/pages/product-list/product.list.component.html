@@ -1,0 +1,87 @@
+
+
+<h1 align="center" class="display-4 ">Products</h1>
+<a *ngIf="currentUser?.role == Role.Customer" style="color: inherit"
+   routerLink="/seller/product/new" class="float-right mb-3"><i class="fas fa-plus fa-2x">Add</i>
+</a>
+<button (click)="exportAsXLSX()" class="float-right mb-3">
+    <i class="fa fa-download" aria-hidden="true" style="font-size:42px;color:blue"></i></button>
+    <form action="/" method="post" enctype="multipart/form-data">
+<input class="form-control" type="file" 
+            (change)="onChange($event)">
+  </form>
+    <button (click)="onUpload()" 
+        class="btn btn-success">
+        Upload
+    </button> 
+    
+<!-- <div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-6 col-md-4">
+                <app-sidebar></app-sidebar>
+            </div>
+
+            <div class="col-md-10">
+               <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+    <mat-card *ngFor="let productInfo of page?.content | filter:searchText">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"> <img height="100px" src="{{productInfo.productIcon}}" alt="{{productInfo.productName}}"></div>
+            <mat-card-title>
+                {{productInfo.productName}}
+            </mat-card-title>
+            <mat-card-title-group>
+                {{productInfo.productPrice | currency:"INR":"symbol"}}
+                <!-- {{productInfo.productStock}} -->
+                <!-- {{ProductStatus[productInfo.productStatus]}} -->
+            </mat-card-title-group>
+            <mat-card-subtitle>
+                {{CategoryType[productInfo.categoryType]}}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p> {{productInfo.productDescription}}</p>
+              </mat-card-content>
+              <button mat-flat-button color="primary" routerLink="/seller/product/{{productInfo.productId}}/edit">Edit</button>
+
+              <button mat-flat-button color="accent" (click)=onSubmit() [disabled]="(productInfo.productStock >10)? true:false" class="ml20">email</button> 
+  </mat-card>
+  <app-pagination [currentPage]="page"></app-pagination> -->
+        <!-- <mat-card-subtitle>
+            {{productInfo.productId}}
+        </mat-card-subtitle>
+       
+        <mat-card-title-group>
+           
+        </mat-card-title-group>
+        <mat-card-content>
+            {{productInfo.productDescription}}
+        </mat-card-content>
+        <mat-card-title-group>
+            {{productInfo.productPrice | currency:"INR":"symbol"}}
+            {{productInfo.productStock}}
+            {{ProductStatus[productInfo.productStatus]}}
+        </mat-card-title-group>
+        <mat-card-footer>
+            <a style="display: block" routerLink="/seller/product/{{productInfo.productId}}/edit">
+                Edit</a>
+
+            <a *ngIf="currentUser?.role == Role.Customer" style="display: block"
+               (click)="remove(page.content, productInfo.productId)" routerLink="./">
+                Remove</a>
+
+           
+        </mat-card-footer>
+
+         <button mat-flat-button color="accent" (click)=onSubmit() [disabled]="(productInfo.productStock >10)? true:false" class="ml20">email</button> 
+
+    </mat-card-header>
+
+
+<app-pagination [currentPage]="page"></app-pagination> -->

@@ -1,0 +1,30 @@
+<div class="search_div">
+<input type = "text"  name="search" [(ngModel)]="searchText" placeholder ="Search Products!"/>
+<button class="search_btn">Search</button>
+</div>
+
+ 
+
+  <div *ngFor="let productInfo of page?.content | filter:searchText" class="col-lg-4 ">
+    <div class="container"  >
+      <img src="{{productInfo.productIcon}}" alt="{{productInfo.productName}}">
+      <div class="details">
+        <div class="header">
+        <span class="name">{{productInfo.productName}}</span>
+      </div>
+        
+        <div class="origins">
+          <span>{{productInfo.productDescription}}</span>
+          <span >{{productInfo.productPrice | currency:"INR":"symbol"}}</span>
+          <span>{{productInfo.productStock}}</span >
+        </div>
+        <br>
+        <button><a routerLink="/product/{{productInfo.productId}}" *ngIf="productInfo.productStatus == 0; else offBlock"
+        
+        >Get It!</a></button>
+        <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">Unavailable</a></ng-template>
+      </div>
+    </div>
+  </div>
+
+<app-pagination  [currentPage]="page" ></app-pagination>

@@ -1,0 +1,144 @@
+.fa-heart {
+    color :palevioletred;
+    cursor : pointer;
+}
+
+.search_div{
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
+    margin-bottom: 1.5rem;
+    height: 6rem;
+}
+
+.search_div input{
+    border-radius: 10rem 0 0 10rem;
+    border: none;
+    height: 5rem;
+    width: 37rem;
+    background-color: #f1f1f1;
+    padding: 1.2rem;
+    font-size: 15px;
+    font-weight: 500;
+    outline: none;
+}
+
+.search_btn{
+    color: grey;
+    height: 5rem;
+    width: 7rem;
+    font-size: 14px;
+    border-radius: 0 10rem 10rem 0;
+    border: none;
+    background-color: #e72929;
+    color: white;
+    opacity: .8;
+    outline: none;
+}
+
+.search_btn:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 3rem;
+}
+
+.container > *{
+ min-width: 25rem;
+ max-width: 40rem;
+}
+
+img{
+    border-radius: 3rem;
+    flex:1 0;
+    object-fit:contain;
+    height: 25rem;
+    margin: 1rem;
+}
+
+.details{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex:1 0;
+    border-radius: 3rem;
+    padding: 2rem;
+    color: black;
+    margin-left: 1rem;
+}
+
+.details .header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.details .name{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.details .favorite{
+    color: #e72929;
+    font-size: 2.5rem;
+}
+
+.details .favorite.not{
+    color: gray;
+}
+
+.details .origins{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.details .origins > span{
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    margin: .5rem .5rem .5rem 0;
+    border-radius: 2rem;
+    background-color: whitesmoke;
+}
+
+
+
+.details .price{
+    font-size: 1.8rem;
+    margin: 2rem 2rem 2rem 0;
+    color: green;
+}
+
+.details .price::before{
+    content: "Price: ";
+    color: darkgrey;
+}
+
+.details button{
+    color: white;
+    background: #e72929;
+    border: none;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 10rem;
+    outline: none;
+}
+
+.details button:hover{
+    opacity: .9;
+    cursor: pointer;
+}
+
+
+button a{
+    color: white;
+}
+
+.header{
+    color: #e72929;
+}

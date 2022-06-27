@@ -1,0 +1,83 @@
+<!-- 
+<h1">Users</h1>
+
+   
+    Search <input type = "text" name="search" [(ngModel)]="searchText" placeholder ="Enter Some Text To Search" />
+
+<table  class="table table-striped text-center" style="width:100%;">
+    <tr>
+        <td >Email</td>
+        <td class="align-middle">{{user.email}}</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td class="align-middle">{{user.name}}</td>
+    </tr
+    <tr>
+        <td scope="col">Role</td>
+        <td class="align-middle">{{user.role}}</td>
+    </tr>
+    <tr>
+        <td scope="col">Action</td>   
+    </tr>
+
+
+    <tbody>
+    <tr *ngFor="let user of page?.content | filter:searchText">
+        
+        <td class="align-middle">{{user.email}}</td>
+        <td class="align-middle">{{user.name}}</td>
+        <td class="align-middle">{{user.role}}</td>
+
+    </tbody>
+</table>
+  <mat-card-actions class="text-center">
+      <button mat-raised-button color="primary"  *ngIf="user.role=='ROLE_CUSTOMER'" (click)=addAdmin(user.email)>Add Admin</button>
+      <button mat-raised-button color="accent" *ngIf="user.role=='ROLE_MANAGER'" (click)=removeAdmin(user.email)  class="btn btn-success">Remove Admin</button>
+  </mat-card-actions>
+<app-pagination [currentPage]="page"></app-pagination>
+ -->
+ <mat-card> 
+    <h1>Your Profile Details</h1>
+
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="container">
+          <div class="container text-center">
+            <img
+              src="https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg"
+              alt=""
+              class="profile-image"
+            />
+  
+            <h1>{{user.name}} </h1>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-10 offset-md-1">
+     
+              <table class="table text-center">
+                <tr>
+                  <td>Email</td>
+                  <td>{{user.email}}</td>
+                </tr>
+                <tr>
+                  <td>Phone</td>
+                  <td>{{user.phone}}</td>
+                </tr>
+                <tr>
+                  <td>Role</td>
+                  <td>{{user.role}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="text-center">
+      <button mat-raised-button color="primary"  *ngIf="user.role=='ROLE_CUSTOMER'" (click)=addAdmin(user.email)>Add Admin</button>
+      <button mat-raised-button color="accent" *ngIf="user.role=='ROLE_MANAGER'" (click)=removeAdmin(user.email)  class="btn btn-success">Remove Admin</button>
+      <app-pagination [currentPage]="page"></app-pagination>
+    </mat-card-actions>
+  </mat-card>

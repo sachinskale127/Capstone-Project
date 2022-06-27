@@ -1,0 +1,108 @@
+
+<mat-card>
+    <h1>Discount Coupon Section</h1>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+          <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="search_div">
+                    <input type = "text"  name="search" [(ngModel)]="searchText" placeholder ="Search Coupons!"/>
+                    <button class="search_btn">Search</button>
+                    </div>
+
+    <mat-form-field class="w100" appearance="outline">
+        <mat-label>Coupon Name</mat-label>
+
+        <input
+          autofocus
+          type="text"
+          name="coupon"
+          id="coupon"
+          matInput
+          placeholder="Enter here"
+          [(ngModel)]="coupon"
+        />
+      </mat-form-field>
+      <div class="container text-center mt15">
+        <button mat-raised-button color="accent" (click)="addCoupon(coupon)">Add Coupon</button>
+      </div>
+
+
+<table id="table" class="table table-striped text-center" style="width:100%;">
+    <thead>
+    <tr>
+        <th scope="col">Couponcode</th>
+        <th scope="col">Action</th>
+        
+    </tr>
+    </thead>
+    <!--Search by 
+    <select ng-model="columns" ng-options="e for e in headers">
+        <option value=""></option>
+    </select>
+    Search <input type = "text" ng-model ="Search[columns]" placeholder ="Enter Some Text To Search" />-->
+    <tbody>
+    <tr *ngFor="let coupon of page?.content | filter:searchText">
+        
+        <td class="align-middle">{{coupon.id}}</td>
+        <td class="align-middle">
+            <button mat-raised-button color="primary" (click)=deleteCoupon(coupon.id)  >Delete</button>
+           <!-- <a  [ngClass]="{'isDisabled':'(productInfo.productStock >10)? true:false'}"style="display: block" class="isDisabled"  routerLink="/email">Email</a>-->
+        </td>
+
+    </tbody>
+</table>
+<app-pagination [currentPage]="page"></app-pagination>
+
+
+<!-- 
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row mt20">
+            <div class="col-md-6 offset-md-3">
+
+                <mat-card>
+                <div class="container text-center">
+                    <img class="logoimg" src="../../../assets/regicon.png" alt="" />
+                </div>
+
+                <h1 class="text-center">Login Here!!</h1>
+
+                <form (ngSubmit)="onSubmit()">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input
+                    [(ngModel)]="model.username"
+                      required
+                      name="username"
+                      matInput
+                      placeholder="Enter here"
+                    />
+                    <mat-hint>Valid User Name</mat-hint>
+                  </mat-form-field>
+
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>User Password</mat-label>
+                    <input
+                    [(ngModel)]="model.password"
+                      required
+                      name="password"
+                      type="password"
+                      matInput
+                      placeholder="Enter here"
+                    />
+                  </mat-form-field>
+
+                  <div class="container text-center">
+                    <button mat-raised-button color="primary" type="submit">Login</button>
+                    <button
+                     type="button"
+                     style="margin-left: 20px;"
+                     mat-raised-button color="accent">Reset</button>
+                  </div>
+                </form>
+            </mat-card>
+            </div>
+        </div>
+    </div>
+</div> -->

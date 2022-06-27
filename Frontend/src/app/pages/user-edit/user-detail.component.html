@@ -1,0 +1,153 @@
+<!-- <h1 align="center" class="display-4 mb-5">Edit Profiles</h1>
+<div style="width:40%; margin: 25px auto" >
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label><b>Email address</b></label>
+        <input readonly [value]=user?.email type="email" class="form-control form-control-lg " disabled id="email"
+               name="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label><b>Name</b></label>
+      <input [(ngModel)]="user.name" type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Your name" required #name="ngModel" autofocus>
+      <div  *ngIf="name.invalid && (name.dirty || name.touched)">
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Name must be at least 3 characters long.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label><b>Password</b></label>
+      <input  [(ngModel)]="user.password" type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password" minlength="3" required #password="ngModel">
+      <div  *ngIf="password.invalid && (password.dirty ||password.touched)">
+        <div *ngIf="password.errors.required">
+          Password is required.
+        </div>
+        <div *ngIf="password.errors.minlength">
+          Password must be at least 3 characters long.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label><b>Phone</b></label>
+      <input [(ngModel)]="user.phone" type="text" class="form-control form-control-lg" id="phone" name="phone" placeholder="Phone" required #phone="ngModel" >
+      <div  *ngIf="phone.invalid && (phone.dirty ||phone.touched)">
+        <div *ngIf="phone.errors.required">
+          Phone is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label><b>Address</b></label>
+      <input [(ngModel)]="user.address" type="text" class="form-control form-control-lg" id="address" name="address" placeholder="Address" required #address="ngModel">
+      <div  *ngIf="address.invalid && (address.dirty ||address.touched)">
+        <div *ngIf="address.errors.required">
+          Address is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!form.form.valid" >Update</button>
+    </div>
+  </form>
+</div> -->
+
+
+<mat-card>
+  <h1>Update Detail</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form #form="ngForm" (ngsubmit)="onSubmit()">
+          <!-- title field  -->
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Enter Email Address</mat-label>
+            <input
+            readonly [value]=user?.email
+              disabled id="email"
+              type="email"
+              name="email"
+              placeholder="Enter here"
+              matInput
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input
+            [(ngModel)]="user.name"
+              type="text"
+              name="name"
+              placeholder="Enter here"
+              matInput
+              required
+             #name="ngModel"
+            />
+          </mat-form-field>
+
+          <!-- password field  -->
+
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Enter Password</mat-label>
+            <input
+            [(ngModel)]="user.password" type="password" 
+            name="password" 
+            placeholder="Password" 
+            minlength="3" 
+            required #password="ngModel"
+              matInput
+            >
+          </mat-form-field>
+
+          
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input
+            [(ngModel)]="user.phone"
+              type="phone"
+              name="phone"
+              id="phone"
+              placeholder="Enter here"
+              matInput
+              required
+              #phone="ngModel"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Address</mat-label>
+            <input
+            [(ngModel)]="user.address"
+              type="text"
+              name="address"
+              id="address"
+              placeholder="Enter here"
+              matInput
+              required
+             #name="ngModel"
+            />
+          </mat-form-field>
+
+          
+
+
+          <br />
+        
+
+          <div class="container text-center">
+            <button mat-raised-button color="accent" type="submit">
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+<!-- {{ quiz | json }} -->
+
+
